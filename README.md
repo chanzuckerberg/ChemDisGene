@@ -154,7 +154,7 @@ This data is being released under the [CC0 license](https://creativecommons.org/
 ## Feedback, Questions
 
 If you have any comments, questions or issues, please post a note in 
-[GitHub issues](https://github.com/chanzuckerberg/MedMentions/issues).
+[GitHub issues](https://github.com/chanzuckerberg/ChemDisGene/issues).
 
 ## Security Issues
 
