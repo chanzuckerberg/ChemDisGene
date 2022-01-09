@@ -11,6 +11,11 @@ Users are referred to that source for the most current and accurate version of t
 Entity mentions were obtained using [PubTator Central](https://www.ncbi.nlm.nih.gov/research/pubtator/), and the relationships are based on the [Comparative Toxicogenomics Database](http://ctdbase.org).
 
 
+## Project Status
+
+This project is stable and maintained, but not actively under development.
+
+
 ## Introduction
 
 The _ChemDisGene_ dataset contains two corpora:
@@ -150,3 +155,7 @@ This data is being released under the [CC0 license](https://creativecommons.org/
 
 If you have any comments, questions or issues, please post a note in 
 [GitHub issues](https://github.com/chanzuckerberg/MedMentions/issues).
+
+## Security Issues
+
+[Reporting security issues](SECURITY.md)
