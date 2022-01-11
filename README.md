@@ -5,7 +5,7 @@ is releasing this data to promote NLP research on Relation Extraction from Biome
 
 This data is being released under the [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
-The abstracts in the dataset were selected from those available from [PubMed&reg; / Medline&reg;](https://www.nlm.nih.gov/databases/download/pubmed_medline.html).
+The abstracts in the dataset were selected from those available from [PubMed&reg; / Medline&reg;](https://www.nlm.nih.gov/databases/download/pubmed_medline.html) during February 2021.
 Users are referred to that source for the most current and accurate version of the text for the corresponding papers.
 
 Entity mentions were obtained using [PubTator Central](https://www.ncbi.nlm.nih.gov/research/pubtator/), and the relationships are based on the [Comparative Toxicogenomics Database](http://ctdbase.org).
