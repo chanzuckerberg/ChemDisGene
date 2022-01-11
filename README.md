@@ -36,7 +36,7 @@ Annotation guidelines developed for the curation task are included [here](curati
 * Diseases are linked to [MeSH&reg;](https://www.nlm.nih.gov/mesh/meshhome.html) and [OMIM&reg;](https://www.omim.org).
 * Genes/Gene-products are linked to [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene).
 
-The dataset uses a total of 18 **relation types**, based on the classes describe below (definitions taken from [CTD Glossary](http://ctdbase.org/help/glossary.jsp)). Some of these classes are further qualified by a degree.
+The dataset uses a total of 18 **relation types**, based on the classes described below (definitions are from [CTD Glossary](http://ctdbase.org/help/glossary.jsp)). Some of these classes are further qualified by a _degree_.
 
 * **Chemical-Disease**:
 	* *marker/mechanism*: A chemical that correlates with a disease.

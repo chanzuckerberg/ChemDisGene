@@ -1,2 +1,4 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
-log_publish.txt
+.DS_Store
+log_*.txt
+README_curated.txt
