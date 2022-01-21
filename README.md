@@ -3,13 +3,6 @@
 This is a public release of the _ChemDisGene_ dataset, a collection of Biomedical research abstracts annotated with mentions of Chemical, Disease and Gene/Gene-product entities, and pairwise relationships between those entities. [CZI Science](https://chanzuckerberg.com/science/) 
 is releasing this data to promote NLP research on Relation Extraction from Biomedical text.
 
-This data is being released under the [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
-
-The abstracts in the dataset were selected from those available from [PubMed&reg; / Medline&reg;](https://www.nlm.nih.gov/databases/download/pubmed_medline.html) during February 2021.
-Users are referred to that source for the most current and accurate version of the text for the corresponding papers.
-
-Entity mentions were obtained using [PubTator Central](https://www.ncbi.nlm.nih.gov/research/pubtator/), and the relationships are based on the [Comparative Toxicogenomics Database](http://ctdbase.org).
-
 
 ## Project Status
 
@@ -149,6 +142,11 @@ To be published. Jan 2022.
 ## License
 
 This data is being released under the [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+The abstracts in the dataset were selected from those available from [PubMed&reg; / Medline&reg;](https://www.nlm.nih.gov/databases/download/pubmed_medline.html) during February 2021.
+Users are referred to that source for the most current and accurate version of the text for the corresponding papers.
+
+Entity mentions were obtained using [PubTator Central](https://www.ncbi.nlm.nih.gov/research/pubtator/), and the relationships are based on the [Comparative Toxicogenomics Database](http://ctdbase.org).
 
 Curated Chemical–Gene, Chemical–Disease and Gene–Disease interactions data were retrieved from the [Comparative Toxicogenomics Database](http://ctdbase.org/) (CTD), MDI Biological Laboratory, Salisbury Cove, Maine, and NC State University, Raleigh, North Carolina. [February, 2021].
 
