@@ -150,6 +150,8 @@ To be published. Jan 2022.
 
 This data is being released under the [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
+Curated Chemical–Gene, Chemical–Disease and Gene–Disease interactions data were retrieved from the [Comparative Toxicogenomics Database](http://ctdbase.org/) (CTD), MDI Biological Laboratory, Salisbury Cove, Maine, and NC State University, Raleigh, North Carolina. [February, 2021].
+
 
 ## Feedback, Questions
 
