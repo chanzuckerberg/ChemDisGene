@@ -1,0 +1,68 @@
+
+Processing ../data/ctd_derived/train ...
+Processing ../data/ctd_derived/dev ...
+Processing ../data/ctd_derived/test ...
+
+
+Basic Stats
+===========
+
+Stat                                      train         dev        test
+-----------------------------------   ---------   ---------   ---------
+Nbr. abstracts                           76,942       1,521       1,939
+... with no relationships                 7,244         397         436
+Nbr. relationships                      167,005       3,290       5,116
+... unique relationships                 93,801       3,127       4,801
+Total Entity mentions                 1,532,117      36,114      49,839
+    Chemicals                           686,102      13,986      19,895
+    Diseases                            478,397       8,962      11,750
+    Genes                               367,618      13,166      18,194
+Total Linked Entity mentions          1,472,501      34,344      47,571
+    Chemicals                           636,321      12,433      17,895
+    Diseases                            468,564       8,745      11,482
+    Genes                               367,616      13,166      18,194
+Total Unlinked Entity mentions           59,616       1,770       2,268
+    Chemicals                            49,781       1,553       2,000
+    Diseases                              9,833         217         268
+    Genes                                     2           0           0
+Total Unique Entity mentions             30,415       4,839       5,878
+    Chemicals                            11,174       1,580       2,024
+    Diseases                              4,787         951       1,043
+    Genes                                14,454       2,308       2,811
+Unique Unlinked Entity mentions          30,412       4,837       5,876
+    Chemicals                            11,173       1,579       2,023
+    Diseases                              4,786         950       1,042
+    Genes                                14,453       2,308       2,811
+Unique Entities in relns.                14,991       1,894       2,345
+    Chemicals                             7,187         759         999
+    Diseases                              2,413         283         287
+    Genes                                 5,391         852       1,059
+-----------------------------------------------------------------------
+
+
+Distribution of Relation Types
+==============================
+
+                                                                     Total                              Unique            
+                                                     ---------------------------------   ---------------------------------
+Relation Type                                            train         dev        test       train         dev        test
+--------------------------------------------------   ---------   ---------   ---------   ---------   ---------   ---------
+Chemical-Disease : marker/mechanism                     66,155         559         754      27,706         486         602
+Chemical-Disease : therapeutic                          34,775         250         410      16,093         245         398
+Chemical-Gene : activity - decreases                     5,555         101         232       4,128          97         232
+Chemical-Gene : activity - increases                     6,152         127         174       4,133         120         157
+Chemical-Gene : binding - affects                        3,123          67          77       2,024          65          73
+Chemical-Gene : expression - affects                     1,247          51         160       1,206          51         158
+Chemical-Gene : expression - decreases                  10,204         480         923       8,487         467         905
+Chemical-Gene : expression - increases                  19,810         919       1,570      14,685         878       1,491
+Chemical-Gene : localization - affects                   1,448          50          73       1,216          50          70
+Chemical-Gene : metabolic_processing - decreases         1,653         101         116       1,313         100         111
+Chemical-Gene : metabolic_processing - increases         4,640         175         293       3,507         172         283
+Chemical-Gene : transport - increases                    1,962          92         108       1,405          88          96
+Gene-Disease : marker/mechanism                          9,388         301         219       7,384         292         218
+Gene-Disease : therapeutic                                 893          17           7         514          16           7
+Total                                                  167,005       3,290       5,116      93,801       3,127       4,801
+--------------------------------------------------------------------------------------------------------------------------
+
+
+Total Run time = 0:00:30.873647

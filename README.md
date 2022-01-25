@@ -21,6 +21,15 @@ Details on how this corpus was derived from CTD and further curated are in the a
 Annotation guidelines developed for the curation task are included [here](curation/AnnotationGuidelines.pdf).
 
 
+### Directory Structure
+
+* [data/](data)
+	* [ctd_derived/](data/ctd_derived/): CTD-derived corpus.
+	* [curated/](data/curated/): Curated corpus.
+* [curation/](curation/): Contains annotation guidelines.
+* [Python/](Python/): Python code for reading the data.
+
+
 ## Entities and Relationships
 
 **Entity mentions** are linked to the following public ontologies:

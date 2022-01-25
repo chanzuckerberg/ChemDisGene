@@ -1,0 +1,71 @@
+
+Processing ../data/curated ...
+
+
+Basic Stats
+===========
+
+Stat                                      Count
+-----------------------------------   ---------
+Nbr. abstracts                              523
+... with no relationships                     9
+... with no CTD relationships                65
+Nbr. relationships                        3,126
+... unique relationships                  3,045
+Nbr. CTD relationships                    1,277
+Nbr. New relationships                    1,849
+Total Entity mentions                    14,248
+    Chemicals                             5,739
+    Diseases                              2,931
+    Genes                                 5,578
+Total Linked Entity mentions             13,598
+    Chemicals                             5,174
+    Diseases                              2,846
+    Genes                                 5,578
+Total Unlinked Entity mentions              650
+    Chemicals                               565
+    Diseases                                 85
+    Genes                                     0
+Total Unique Entity mentions              2,563
+    Chemicals                               959
+    Diseases                                461
+    Genes                                 1,143
+Unique Unlinked Entity mentions           2,561
+    Chemicals                               958
+    Diseases                                460
+    Genes                                 1,143
+Unique Entities in relns.                 1,728
+    Chemicals                               620
+    Diseases                                285
+    Genes                                   823
+-----------------------------------------------
+
+
+Distribution of Relation Types
+==============================
+
+Relation Type                                              New         CTD
+--------------------------------------------------   ---------   ---------
+Chemical-Disease : marker/mechanism                      16.8%       16.4%
+Chemical-Disease : therapeutic                           10.3%       12.0%
+Chemical-Gene : activity - affects                        0.5%            
+Chemical-Gene : activity - decreases                      8.2%        7.3%
+Chemical-Gene : activity - increases                      9.0%        7.8%
+Chemical-Gene : binding - affects                         3.4%        6.7%
+Chemical-Gene : expression - affects                      3.3%        0.6%
+Chemical-Gene : expression - decreases                   12.0%       13.2%
+Chemical-Gene : expression - increases                   14.2%       18.4%
+Chemical-Gene : localization - affects                    0.7%        1.5%
+Chemical-Gene : metabolic_processing - affects            0.6%            
+Chemical-Gene : metabolic_processing - decreases          2.2%        1.5%
+Chemical-Gene : metabolic_processing - increases          2.6%        4.0%
+Chemical-Gene : transport - affects                       0.1%            
+Chemical-Gene : transport - decreases                     0.5%            
+Chemical-Gene : transport - increases                     0.3%        0.9%
+Gene-Disease : marker/mechanism                          13.2%        9.2%
+Gene-Disease : therapeutic                                2.1%        0.5%
+Total                                                   100.0%      100.0%
+--------------------------------------------------------------------------
+
+
+Total Run time = 0:00:00.268055

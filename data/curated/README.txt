@@ -11,3 +11,9 @@ approved_relns_new_v0.tsv.gz
 
 drugprot_pmids.txt.gz
 	List of PubMedID's of documents that are also in DrugProt. One per line.
+
+curated_stats.txt
+	Basic stats on Curated data.
+	To replicate, run from the Python dir:
+	[Python] $> python -m chemdisgene.analysis.datastats curated_basic ../data/curated
+
