@@ -14,8 +14,8 @@ The API for reading the data is in `chemdisgene/data/pubtator.py`. Here is an ex
 ```python
 from chemdisgene.data.pubtator import parse_pubtator_to_dict
 data_dir = "../data/ctd_derived"
-abstracts_file = ".{data_dir}/test_abstracts.txt.gz" 
-relns_file = "{data_dir}/test_relationships.tsv.gz"
+abstracts_file = f"{data_dir}/test_abstracts.txt.gz" 
+relns_file = f"{data_dir}/test_relationships.tsv.gz"
 docs_dict = parse_pubtator_to_dict(abstracts_file, relns_file)
 ```
 
