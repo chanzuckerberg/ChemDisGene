@@ -293,7 +293,7 @@ class AnnotatedDocument:
     def get_mentioned_entities(self) -> Set[Tuple[str, str]]:
         return set(self._entity_mentions_dict.keys())
 
-    def get_mentions(self, entity_type: str, entity_id: str) -> Optional[List[EntityMention]]:
+    def get_entity_mentions(self, entity_type: str, entity_id: str) -> Optional[List[EntityMention]]:
         """
         :return: List of EntityMention that mention the entity `(entity_type, entity_id)` in this doc,
             or None if no such mentions.
