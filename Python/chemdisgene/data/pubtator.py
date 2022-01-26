@@ -218,7 +218,9 @@ class AnnotatedDocument:
         self.mentions: List[EntityMention] = []
         self.relationships: List[BinaryRelationship] = []
 
+        # Dict: (entity_type: str, entity_id: str) => List[EntityMention]
         self._entity_mentions_dict = defaultdict(list)
+
         self._is_sorted = True
         return
 
@@ -290,6 +292,13 @@ class AnnotatedDocument:
 
     def get_mentioned_entities(self) -> Set[Tuple[str, str]]:
         return set(self._entity_mentions_dict.keys())
+
+    def get_mentions(self, entity_type: str, entity_id: str) -> Optional[List[EntityMention]]:
+        """
+        :return: List of EntityMention that mention the entity `(entity_type, entity_id)` in this doc,
+            or None if no such mentions.
+        """
+        return self._entity_mentions_dict.get((entity_type, entity_id))
 
     def write(self, file: TextIO = sys.stdout, write_relationships: bool = False, composite_sep: str = "|"):
         """
