@@ -120,9 +120,9 @@ Each line in a relationships file indicates one relationship in one of the corre
 Relationships are associated with the document, but not specific entity mentions (distant labeling). Here is an example showing three relationships associated with the abstract with PubMed&reg; ID "10226872":
 
 ```
-10226872        chem^disease:marker/mechanism   MESH:D007545    MESH:D013610
-10226872        chem^gene:affects-binding       MESH:D013726    154
-10226872        chem^gene:increases-activity    MESH:D013726    154
+10226872        chem_disease:marker/mechanism   MESH:D007545    MESH:D013610
+10226872        chem_gene:affects^binding       MESH:D013726    154
+10226872        chem_gene:increases^activity    MESH:D013726    154
 ```
 
 The first relationship in the example is for the relation type "_Chemical-Disease: marker/mechanism_", with argument entities "MESH:D007545" (a Chemical) and "MESH:D013610" (a Disease). The relation type in the second relationship is "_Chemical-Gene: affects-binding_", where "_affects_" is the degree of "_binding_".
