@@ -29,18 +29,19 @@ class BinaryRelationship:
                       "gene": "Gene"}
 
     def __init__(self, subj_eid: str, obj_eid: str, relation_label: str, from_ctd: bool = True):
+
+        self.subj_eid = subj_eid
+        self.obj_eid = obj_eid
+        self.relation_label = relation_label
+        self.from_ctd = from_ctd
+
+        # Derived Fields:
+
         # Relation label contains the arg entity types
         # Examples: "chem_gene:increases^expression", "chem_disease:marker/mechanism"
         subj_type, obj_type = relation_label.split(":")[0].split("_")
-
         self.subj_type = self.STDD_ARG_TYPES[subj_type]
-        self.subj_eid = subj_eid
-
         self.obj_type = self.STDD_ARG_TYPES[obj_type]
-        self.obj_eid = obj_eid
-
-        self.relation_label = relation_label
-        self.from_ctd = from_ctd
 
         return
 
