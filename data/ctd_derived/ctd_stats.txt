@@ -43,26 +43,26 @@ Unique Entities in relns.                14,991       1,894       2,345
 Distribution of Relation Types
 ==============================
 
-                                                                     Total                              Unique            
-                                                     ---------------------------------   ---------------------------------
-Relation Type                                            train         dev        test       train         dev        test
---------------------------------------------------   ---------   ---------   ---------   ---------   ---------   ---------
-Chemical-Disease : marker/mechanism                     66,155         559         754      27,706         486         602
-Chemical-Disease : therapeutic                          34,775         250         410      16,093         245         398
-Chemical-Gene : activity - decreases                     5,555         101         232       4,128          97         232
-Chemical-Gene : activity - increases                     6,152         127         174       4,133         120         157
-Chemical-Gene : binding - affects                        3,123          67          77       2,024          65          73
-Chemical-Gene : expression - affects                     1,247          51         160       1,206          51         158
-Chemical-Gene : expression - decreases                  10,204         480         923       8,487         467         905
-Chemical-Gene : expression - increases                  19,810         919       1,570      14,685         878       1,491
-Chemical-Gene : localization - affects                   1,448          50          73       1,216          50          70
-Chemical-Gene : metabolic_processing - decreases         1,653         101         116       1,313         100         111
-Chemical-Gene : metabolic_processing - increases         4,640         175         293       3,507         172         283
-Chemical-Gene : transport - increases                    1,962          92         108       1,405          88          96
-Gene-Disease : marker/mechanism                          9,388         301         219       7,384         292         218
-Gene-Disease : therapeutic                                 893          17           7         514          16           7
-Total                                                  167,005       3,290       5,116      93,801       3,127       4,801
---------------------------------------------------------------------------------------------------------------------------
+                                                                                                                          Total                              Unique            
+                                                                                                          ---------------------------------   ---------------------------------
+Relation Label                                       Relation Type (pretty)                                   train         dev        test       train         dev        test
+--------------------------------------------------   --------------------------------------------------   ---------   ---------   ---------   ---------   ---------   ---------
+chem_disease:marker/mechanism                        Chemical-Disease : marker/mechanism                     66,155         559         754      27,706         486         602
+chem_disease:therapeutic                             Chemical-Disease : therapeutic                          34,775         250         410      16,093         245         398
+chem_gene:decreases^activity                         Chemical-Gene : activity - decreases                     5,555         101         232       4,128          97         232
+chem_gene:increases^activity                         Chemical-Gene : activity - increases                     6,152         127         174       4,133         120         157
+chem_gene:affects^binding                            Chemical-Gene : binding - affects                        3,123          67          77       2,024          65          73
+chem_gene:affects^expression                         Chemical-Gene : expression - affects                     1,247          51         160       1,206          51         158
+chem_gene:decreases^expression                       Chemical-Gene : expression - decreases                  10,204         480         923       8,487         467         905
+chem_gene:increases^expression                       Chemical-Gene : expression - increases                  19,810         919       1,570      14,685         878       1,491
+chem_gene:affects^localization                       Chemical-Gene : localization - affects                   1,448          50          73       1,216          50          70
+chem_gene:decreases^metabolic_processing             Chemical-Gene : metabolic_processing - decreases         1,653         101         116       1,313         100         111
+chem_gene:increases^metabolic_processing             Chemical-Gene : metabolic_processing - increases         4,640         175         293       3,507         172         283
+chem_gene:increases^transport                        Chemical-Gene : transport - increases                    1,962          92         108       1,405          88          96
+gene_disease:marker/mechanism                        Gene-Disease : marker/mechanism                          9,388         301         219       7,384         292         218
+gene_disease:therapeutic                             Gene-Disease : therapeutic                                 893          17           7         514          16           7
+Total                                                Total                                                  167,005       3,290       5,116      93,801       3,127       4,801
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Total Run time = 0:00:30.873647
+Total Run time = 0:00:31.621559

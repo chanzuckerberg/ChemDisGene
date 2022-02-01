@@ -4,6 +4,7 @@ Stats on data
 
 import gzip
 from collections import defaultdict, Counter
+from typing import List, Union
 
 from ..data.pubtator import BinaryRelationship, parse_pubtator_to_dict, parse_relationships_opened_file
 
@@ -78,7 +79,7 @@ def get_counts(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
         unique_mentioned_entities |= doc.get_mentioned_entities()
 
         for reln in doc.relationships:
-            r_label = reln.get_pretty_relation_label()
+            r_label = reln.relation_label
             counts["n_relns"][r_label] += 1
             if reln.from_ctd:
                 counts["n_ctd_relns"][r_label] += 1
@@ -104,7 +105,7 @@ def get_counts(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
 
     unique_entities_in_relns = defaultdict(set)
     for reln_key in unique_relns:
-        counts["n_unique_relns"][get_pretty_reln_label(reln_key)] += 1
+        counts["n_unique_relns"][reln_key[0]] += 1
         unique_entities_in_relns[reln_key[1]].add((reln_key[2]))
         unique_entities_in_relns[reln_key[3]].add((reln_key[4]))
 
@@ -118,8 +119,11 @@ def get_reln_key(reln: BinaryRelationship):
     return reln.relation_label, reln.subj_type, reln.subj_eid, reln.obj_type, reln.obj_eid
 
 
-def get_pretty_reln_label(reln_key):
-    return BinaryRelationship(reln_key[2], reln_key[3], reln_key[0]).get_pretty_relation_label()
+def get_pretty_reln_label(relation_label):
+    if relation_label == "Total":
+        return relation_label
+    else:
+        return BinaryRelationship("Dummy", "Dummy", relation_label).get_pretty_relation_label()
 
 
 def print_stats_ctd_derived(data_dir="../data/ctd_derived"):
@@ -183,23 +187,23 @@ def print_stats_ctd_derived(data_dir="../data/ctd_derived"):
     print("Distribution of Relation Types")
     print("==============================")
     print()
-    pp_counts("", ["", "Total", "", "", "Unique", ""], label_width=50)
-    pp_counts("", ["-" * 33] * 2, label_width=50)
-    pp_counts("Relation Type", all_splits * 2, label_width=50)
-    pp_counts("-" * 50, ["-" * 9 for _ in all_splits] * 2, label_width=50)
+    pp_counts(["", ""], ["", "Total", "", "", "Unique", ""], label_width=50)
+    pp_counts(["", ""], ["-" * 33] * 2, label_width=50)
+    pp_counts(["Relation Label", "Relation Type (pretty)"], all_splits * 2, label_width=50)
+    pp_counts(["-" * 50] * 2, ["-" * 9 for _ in all_splits] * 2, label_width=50)
 
-    for rtype in sorted(stats["train"]["n_relns"].keys()):
-        pp_counts(rtype,
+    for rtype in sorted(stats["train"]["n_relns"].keys(), key=get_pretty_reln_label):
+        pp_counts([rtype, get_pretty_reln_label(rtype)],
                   [stats[split]["n_relns"][rtype] for split in all_splits]
                   + [stats[split]["n_unique_relns"][rtype] for split in all_splits],
                   label_width=50)
 
-    print("-" * 122)
+    print("-" * 175)
     print()
     return
 
 
-def pp_counts(label, counts, label_width=35):
+def pp_counts(label: Union[str, List[str]], counts, label_width: Union[int, List[int]] = 35):
     if FOR_LATEX:
         sep = " & "
         end = " \\\\\n"
@@ -210,8 +214,17 @@ def pp_counts(label, counts, label_width=35):
     if isinstance(counts, (str, int)):
         counts = [counts]
 
+    if not isinstance(label, (list, tuple)):
+        label = [label]
+    if not isinstance(label_width, list):
+        label_width = [label_width] * len(label)
+    if len(label_width) < len(label):
+        label_width += [label_width[-1]] * (len(label_width) - len(label))
+
+    labels = [f"{lbl:{w}s}" for lbl, w in zip(label, label_width)]
+
     counts = [f"{c:9,d}" if isinstance(c, int) else f"{c:>9s}" for c in counts]
-    print(f"{label:{label_width}s}", *counts, sep=sep, end=end)
+    print(*labels, *counts, sep=sep, end=end)
     return
 
 
@@ -275,10 +288,10 @@ def print_stats_curated(data_dir="../data/curated"):
     print("Distribution of Relation Types")
     print("==============================")
     print()
-    pp_counts("Relation Type", ["New", "CTD"], label_width=50)
-    pp_counts("-" * 50, ["-" * 9] * 2, label_width=50)
+    pp_counts(["Relation Label", "Relation Type (pretty)"], ["New", "CTD"], label_width=50)
+    pp_counts(["-" * 50] * 2, ["-" * 9] * 2, label_width=50)
 
-    for rtype in sorted(stats["n_relns"].keys()):
+    for rtype in sorted(stats["n_relns"].keys(), key=get_pretty_reln_label):
         if stats["n_non_ctd_relns"][rtype]:
             non_ctd_pct = "{:.1%}".format(stats["n_non_ctd_relns"][rtype] / stats["n_non_ctd_relns"]["Total"])
         else:
@@ -289,9 +302,9 @@ def print_stats_curated(data_dir="../data/curated"):
         else:
             ctd_pct = ""
 
-        pp_counts(rtype, [non_ctd_pct, ctd_pct], label_width=50)
+        pp_counts([rtype, get_pretty_reln_label(rtype)], [non_ctd_pct, ctd_pct], label_width=50)
 
-    print("-" * 74)
+    print("-" * 127)
     print()
     return
 
@@ -303,6 +316,7 @@ def print_stats_curated(data_dir="../data/curated"):
 # Invoke as: python -m chemdisgene.analysis.datastats CMD ...
 # e.g.
 # python -m chemdisgene.analysis.datastats ctd_basic ../data/ctd_derived
+# python -m chemdisgene.analysis.datastats curated_basic ../data/curated
 
 if __name__ == '__main__':
 

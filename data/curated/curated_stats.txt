@@ -44,28 +44,28 @@ Unique Entities in relns.                 1,728
 Distribution of Relation Types
 ==============================
 
-Relation Type                                              New         CTD
---------------------------------------------------   ---------   ---------
-Chemical-Disease : marker/mechanism                      16.8%       16.4%
-Chemical-Disease : therapeutic                           10.3%       12.0%
-Chemical-Gene : activity - affects                        0.5%            
-Chemical-Gene : activity - decreases                      8.2%        7.3%
-Chemical-Gene : activity - increases                      9.0%        7.8%
-Chemical-Gene : binding - affects                         3.4%        6.7%
-Chemical-Gene : expression - affects                      3.3%        0.6%
-Chemical-Gene : expression - decreases                   12.0%       13.2%
-Chemical-Gene : expression - increases                   14.2%       18.4%
-Chemical-Gene : localization - affects                    0.7%        1.5%
-Chemical-Gene : metabolic_processing - affects            0.6%            
-Chemical-Gene : metabolic_processing - decreases          2.2%        1.5%
-Chemical-Gene : metabolic_processing - increases          2.6%        4.0%
-Chemical-Gene : transport - affects                       0.1%            
-Chemical-Gene : transport - decreases                     0.5%            
-Chemical-Gene : transport - increases                     0.3%        0.9%
-Gene-Disease : marker/mechanism                          13.2%        9.2%
-Gene-Disease : therapeutic                                2.1%        0.5%
-Total                                                   100.0%      100.0%
---------------------------------------------------------------------------
+Relation Label                                       Relation Type (pretty)                                     New         CTD
+--------------------------------------------------   --------------------------------------------------   ---------   ---------
+chem_disease:marker/mechanism                        Chemical-Disease : marker/mechanism                      16.8%       16.4%
+chem_disease:therapeutic                             Chemical-Disease : therapeutic                           10.3%       12.0%
+chem_gene:affects^activity                           Chemical-Gene : activity - affects                        0.5%            
+chem_gene:decreases^activity                         Chemical-Gene : activity - decreases                      8.2%        7.3%
+chem_gene:increases^activity                         Chemical-Gene : activity - increases                      9.0%        7.8%
+chem_gene:affects^binding                            Chemical-Gene : binding - affects                         3.4%        6.7%
+chem_gene:affects^expression                         Chemical-Gene : expression - affects                      3.3%        0.6%
+chem_gene:decreases^expression                       Chemical-Gene : expression - decreases                   12.0%       13.2%
+chem_gene:increases^expression                       Chemical-Gene : expression - increases                   14.2%       18.4%
+chem_gene:affects^localization                       Chemical-Gene : localization - affects                    0.7%        1.5%
+chem_gene:affects^metabolic_processing               Chemical-Gene : metabolic_processing - affects            0.6%            
+chem_gene:decreases^metabolic_processing             Chemical-Gene : metabolic_processing - decreases          2.2%        1.5%
+chem_gene:increases^metabolic_processing             Chemical-Gene : metabolic_processing - increases          2.6%        4.0%
+chem_gene:affects^transport                          Chemical-Gene : transport - affects                       0.1%            
+chem_gene:decreases^transport                        Chemical-Gene : transport - decreases                     0.5%            
+chem_gene:increases^transport                        Chemical-Gene : transport - increases                     0.3%        0.9%
+gene_disease:marker/mechanism                        Gene-Disease : marker/mechanism                          13.2%        9.2%
+gene_disease:therapeutic                             Gene-Disease : therapeutic                                2.1%        0.5%
+Total                                                Total                                                   100.0%      100.0%
+-------------------------------------------------------------------------------------------------------------------------------
 
 
-Total Run time = 0:00:00.268055
+Total Run time = 0:00:00.274846
