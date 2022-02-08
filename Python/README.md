@@ -40,7 +40,7 @@ The next example steps through each relationship in a document, retrieves all th
 for reln in doc.relationships:
     subj_mentions = doc.get_entity_mentions(reln.subj_type, reln.subj_eid)
     obj_mentions = doc.get_entity_mentions(reln.obj_type, reln.obj_eid)
-	process_reln(reln, subj_mentions, obj_mentions)
+    process_reln(reln, subj_mentions, obj_mentions)
 ```
 
 For more examples, take a look at [chemdisgene/analysis/datastats.py](chemdisgene/analysis/datastats.py).
