@@ -4,6 +4,7 @@ Stats on data
 
 import gzip
 from collections import defaultdict, Counter
+import os.path
 from typing import List, Union
 
 from ..data.pubtator import BinaryRelationship, parse_pubtator_to_dict, parse_relationships_opened_file
@@ -232,8 +233,13 @@ def print_stats_curated(data_dir="../data/curated"):
 
     print(f"Processing {data_dir} ...", flush=True)
 
-    stats = get_counts(f"{data_dir}/abstracts.txt.gz", f"{data_dir}/approved_relns_ctd_v0.tsv.gz",
-                       f"{data_dir}/approved_relns_new_v0.tsv.gz")
+    ctd_relns_file = f"{data_dir}/approved_relns_ctd_v1.tsv.gz"
+    new_relns_file = f"{data_dir}/approved_relns_new_v1.tsv.gz"
+    if not os.path.exists(ctd_relns_file):
+        ctd_relns_file = f"{data_dir}/approved_relns_ctd_v0.tsv.gz"
+        new_relns_file = f"{data_dir}/approved_relns_new_v0.tsv.gz"
+
+    stats = get_counts(f"{data_dir}/abstracts.txt.gz", ctd_relns_file, new_relns_file)
 
     print()
     print()
@@ -315,8 +321,8 @@ def print_stats_curated(data_dir="../data/curated"):
 
 # Invoke as: python -m chemdisgene.analysis.datastats CMD ...
 # e.g.
-# python -m chemdisgene.analysis.datastats ctd_basic ../data/ctd_derived
-# python -m chemdisgene.analysis.datastats curated_basic ../data/curated
+# python -m chemdisgene.analysis.datastats ctd_basic ../data/ctd_derived | tee ../data/ctd_derived/ctd_stats.txt
+# python -m chemdisgene.analysis.datastats curated_basic ../data/curated | tee ../data/curated/curated_stats.txt
 
 if __name__ == '__main__':
 
