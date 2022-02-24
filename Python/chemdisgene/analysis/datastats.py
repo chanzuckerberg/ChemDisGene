@@ -24,7 +24,7 @@ FOR_LATEX = False
 # -----------------------------------------------------------------------------
 
 
-def get_counts(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
+def read_docs_relns(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
     docs_dict = parse_pubtator_to_dict(pbtr_file, ctd_relns_file)
 
     if new_relns_file:
@@ -43,6 +43,12 @@ def get_counts(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
                 except AssertionError as e:
                     print(e)
                     print("Skipping entry ...\n")
+
+    return docs_dict
+
+
+def get_counts(pbtr_file: str, ctd_relns_file: str, new_relns_file: str = None):
+    docs_dict = read_docs_relns(pbtr_file, ctd_relns_file, new_relns_file)
 
     counts = dict(n_docs=len(docs_dict),
                   n_docs_no_relns=0,
@@ -315,6 +321,36 @@ def print_stats_curated(data_dir="../data/curated"):
     return
 
 
+def pp_nrels_by_ndocs_curated(data_dir="../data/curated"):
+
+    print(f"Processing {data_dir} ...", flush=True)
+
+    ctd_relns_file = f"{data_dir}/approved_relns_ctd_v1.tsv.gz"
+    new_relns_file = f"{data_dir}/approved_relns_new_v1.tsv.gz"
+    if not os.path.exists(ctd_relns_file):
+        ctd_relns_file = f"{data_dir}/approved_relns_ctd_v0.tsv.gz"
+        new_relns_file = f"{data_dir}/approved_relns_new_v0.tsv.gz"
+
+    docs_dict = read_docs_relns(f"{data_dir}/abstracts.txt.gz", ctd_relns_file, new_relns_file)
+
+    all_reln_counts = Counter([len(doc.relationships)
+                               for doc in docs_dict.values()])
+    ctd_reln_counts = Counter([len([r for r in doc.relationships if r.from_ctd])
+                               for doc in docs_dict.values()])
+    new_reln_counts = Counter([len([r for r in doc.relationships if not r.from_ctd])
+                               for doc in docs_dict.values()])
+
+    max_n_relns = max(max(all_reln_counts.keys()), max(ctd_reln_counts.keys()))
+    print("nRelns", "nDocs-All", "nDocs-CTD", "nDocs-New", sep="\t")
+    for n_relns in range(max_n_relns + 1):
+        print(n_relns,
+              all_reln_counts[n_relns], ctd_reln_counts[n_relns], new_reln_counts[n_relns],
+              sep="\t")
+    print()
+
+    return
+
+
 # ======================================================================================================
 #   Main
 # ======================================================================================================
@@ -323,6 +359,7 @@ def print_stats_curated(data_dir="../data/curated"):
 # e.g.
 # python -m chemdisgene.analysis.datastats ctd_basic ../data/ctd_derived | tee ../data/ctd_derived/ctd_stats.txt
 # python -m chemdisgene.analysis.datastats curated_basic ../data/curated | tee ../data/curated/curated_stats.txt
+# python -m chemdisgene.analysis.datastats curated_distr ../data/curated
 
 if __name__ == '__main__':
 
@@ -353,6 +390,13 @@ if __name__ == '__main__':
     _sub_cmd_parser.add_argument('data_dir', type=str,
                                  help="Path to `ChemDisGene/data/curated` dir, e.g. `../data/curated`.")
 
+    # ... curated_distr DATA_DIR
+    _sub_cmd_parser = _subparsers.add_parser('curated_distr',
+                                             help="Distribution of nbr Relns by nbr Docs on CTD-derived Corpus.")
+
+    _sub_cmd_parser.add_argument('data_dir', type=str,
+                                 help="Path to `ChemDisGene/data/curated` dir, e.g. `../data/curated`.")
+
     # --
 
     _args = _argparser.parse_args()
@@ -369,6 +413,10 @@ if __name__ == '__main__':
     elif _args.subcmd == 'curated_basic':
 
         print_stats_curated(_args.data_dir)
+
+    elif _args.subcmd == 'curated_distr':
+
+        pp_nrels_by_ndocs_curated(_args.data_dir)
 
     else:
 
