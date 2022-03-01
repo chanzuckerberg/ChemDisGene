@@ -30,6 +30,17 @@ Annotation guidelines developed for the curation task are included [here](curati
 * [Python/](Python/): Python code for reading the data.
 
 
+### Cloning the Repository
+
+The data files are stored using `git lfs`. Follow [these](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) instructions to install `git lfs` on your machine. Then issue the following command:
+
+```
+$ git lfs clone https://github.com/chanzuckerberg/ChemDisGene.git
+```
+
+This will create a new directory called `ChemDisGene` and clone the repository into that directory.
+
+
 ## Entities and Relationships
 
 **Entity mentions** are linked to the following public ontologies:
