@@ -28,6 +28,7 @@ Annotation guidelines developed for the curation task are included [here](curati
 	* [curated/](data/curated/): Curated corpus.
 * [curation/](curation/): Contains annotation guidelines.
 * [Python/](Python/): Python code for reading the data.
+* [baseline/](baseline/): Code for the baseline models in our paper.
 
 
 ### Cloning the Repository
