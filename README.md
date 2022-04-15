@@ -157,8 +157,19 @@ If you use _ChemDisGene_, please cite the following paper:
 
 Dongxu Zhang, Sunil Mohan, Michaela Torkar and Andrew McCallum.
 *A Distant Supervision Corpus for Extracting Biomedical Relationships Between Chemicals, Diseases and Genes*.
-To be published. Jan 2022.
+In LREC 2022. [[arXiv](https://arxiv.org/abs/2201.11903)]
 
+```
+@InProceedings{zhang-etal:2022:LREC,
+  author = {Dongxu Zhang and Sunil Mohan and Michaela Torkar and Andrew McCallum},
+  title = {A Distant Supervision Corpus for Extracting Biomedical Relationships Between Chemicals, Diseases and Genes},
+  booktitle = {Proceedings of The 13th Language Resources and Evaluation Conference},
+  month = {June},
+  year = {2022},
+  address = {Marseille, France},
+  publisher = {European Language Resources Association},
+}
+```
 
 ## License
 
