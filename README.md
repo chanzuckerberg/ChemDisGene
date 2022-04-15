@@ -157,7 +157,7 @@ If you use _ChemDisGene_, please cite the following paper:
 
 Dongxu Zhang, Sunil Mohan, Michaela Torkar and Andrew McCallum.
 *A Distant Supervision Corpus for Extracting Biomedical Relationships Between Chemicals, Diseases and Genes*.
-In LREC 2022. [[arXiv](https://arxiv.org/abs/2201.11903)]
+In LREC 2022. [[arXiv](https://arxiv.org/abs/2204.06584)]
 
 ```
 @InProceedings{zhang-etal:2022:LREC,
